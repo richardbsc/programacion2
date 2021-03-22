@@ -1,0 +1,50 @@
+<ui:composition 
+    template="../Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form>
+        <b:panel title="NUEVO">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="NOMBRE"/>
+                <p:inputText value="#{clienteControl.nombre}"/>
+                <p:outputLabel value="APELLIDO"/>
+                <p:inputText value="#{clienteControl.apellido}"/>
+                <p:outputLabel value="DIRECCION"/>
+                <p:inputText value="#{clienteControl.direccion}"/>
+                <p:outputLabel value="CORREO"/>
+                <p:inputText value="#{clienteControl.correo}"/>
+                 <p:outputLabel value="TELEFONO"/>
+                 <p:inputText value="#{clienteControl.telefono}"/>
+                <p:commandButton  value="GUARDAR" styleClass="rounded-button" action="#{clienteControl.guardar()}"/>
+            </p:panelGrid>
+        </b:panel>
+        <p:panel header="LISTA DE CLIENTES">
+            <p:dataTable value="#{clienteControl.listCliente}" var="th">
+                <p:column headerText="NOMBRE">
+                    <p:outputLabel value="#{th.nombre}"/>
+                </p:column>
+                <p:column headerText="APELLIDO">
+                    <p:outputLabel value="#{th.apellido}"/>
+                </p:column>
+                 <p:column headerText="DIRECCION">
+                     <p:outputLabel value="#{th.direccion}"/>
+                </p:column>
+                 <p:column headerText="CORREO">
+                     <p:outputLabel value="#{th.correo}"/>
+                </p:column>
+                 <p:column headerText="TELEFONO">
+                     <p:outputLabel value="#{th.telefono}"/>
+                </p:column>
+                <p:column headerText="ACTUALIZAR">
+                    <p:commandButton type="button" value="Actualizar" styleClass="rounded-button" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
