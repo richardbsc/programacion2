@@ -1,0 +1,49 @@
+<ui:composition 
+    template="../Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form>
+        <b:panel title="NUEVO">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="NOMBRE_PRODUCTO"/>
+                <p:inputText value="#{productoControl.nombre_producto}"/>
+                <p:outputLabel value="TIPO_PRODUCTO"/>
+                <p:inputText value="#{productoControl.tipo_producto}"/>
+                <p:outputLabel value="DESCRIPCION"/>
+                <p:inputText value="#{productoControl.descripcion}"/>
+                <p:outputLabel value="PRECIO"/>
+                <p:inputText value="#{productoControl.precio}"/>
+                 <p:outputLabel value="FECHA_VENCIMIENTO"/>
+                 <p:input value="#{productoControl.fecha_vencimiento}"/>
+                 <p:commandButton  value="GUARDAR" styleClass="rounded-button" action="#{productoControl.guardar()}"/>
+            </p:panelGrid>
+        </b:panel>
+        <p:panel header="LISTA DE CLIENTES">
+            <p:dataTable value="#{productoControl.listProducto}" var="th">
+                <p:column headerText="NOMBRE_PRODUCTO">
+                    <p:outputLabel value="#{th.nombreProducto}"/>
+                </p:column>
+                <p:column headerText="TIPO_PRODUCTO">
+                    <p:outputLabel value="#{th.tipoProducto}"/>
+                </p:column>
+                 <p:column headerText="DESCRIPCION">
+                     <p:outputLabel value="#{th.descripcion}"/>
+                </p:column>
+                 <p:column headerText="PRECIO">
+                     <p:outputLabel value="#{th.precio}"/>
+                </p:column>
+                 <p:column headerText="FECHA_VENCIMIENTO">
+                     <p:outputLabel value="#{th.fechaVencimiento}"/>
+                </p:column>
+                <p:column headerText="ACTUALIZAR">
+                    <p:commandButton type="button" value="Actualizar" styleClass="rounded-button" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+        </h:form>
+    </ui:define>
