@@ -49,7 +49,7 @@ public void guardar(){
     clienteNueva.setDireccion(direccion);
     clienteNueva.setCorreo(correo);
     clienteNueva.setTelefono(telefono);
-    clienteNueva.setIdCliente(3);
+    clienteNueva.setIdCliente(6);
     clienteServicio.guardar(clienteNueva);
     limpiar();
     
@@ -62,6 +62,13 @@ public void guardar(){
         telefono= null;
     }
     
+   public void seleccionarCliente(Cliente cliente){
+       this.nombre=cliente.getNombre();
+       this.apellido=cliente.getApellido();
+       this.direccion=cliente.getDireccion();
+       this.correo=cliente.getCorreo();
+       this.telefono=cliente.getTelefono();
+   }
     public String getNombre() {
         return nombre;
     }

@@ -41,7 +41,9 @@
                      <p:outputLabel value="#{th.telefono}"/>
                 </p:column>
                 <p:column headerText="ACTUALIZAR">
-                    <p:commandButton type="button" value="Actualizar" styleClass="rounded-button" />
+                    <b:commandButton value="actualizar" ajax="true"  look="primary" style="width:80px" 
+                                     action="#{clienteControl.seleccionarCliente(th)}"
+                                     update="@form"/>
                 </p:column>
             </p:dataTable>
         </p:panel>
